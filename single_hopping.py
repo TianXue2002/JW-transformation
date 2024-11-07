@@ -1,5 +1,4 @@
 import numpy as np
-import syscr
 from scipy.linalg import expm
 from qiskit_nature.second_q.operators import FermionicOp
 from qiskit_nature.second_q.mappers import JordanWignerMapper
@@ -8,7 +7,7 @@ import qiskit.quantum_info as qi
 from IPython.display import display
 
 
-def eate_single_hopping_fermionic_operator(i, j, N):
+def create_single_hopping_fermionic_operator(i, j, N):
     if i > j:
         raise ValueError("i must be smaller or equal to j")
     else:

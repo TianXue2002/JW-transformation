@@ -73,6 +73,17 @@ def create_circuit_components(qc, i, j, k, m, t, N, gate_sets):
         else:
             qc.sdg(N-cur_index-1)
             qc.h(N-cur_index-1)
+    
+    create_ladder_cnot(qc, i, j, k, m, t, N)
+    
+    for a in range(4):
+        cur_index = index[a]
+        if gate_sets[a] == "X":
+            qc.h(N-cur_index-1)
+        else:
+            qc.h(N-cur_index-1)
+            qc.s(N-cur_index-1)
+    return None
             
 def create_double_hopping_circuit(i,j,k,m,t,N):
     qc = QuantumCircuit(N)
